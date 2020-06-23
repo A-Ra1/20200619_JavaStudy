@@ -37,14 +37,14 @@ public class 자바조건문문제5 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-   int alpha = '0';
+   int alpha = 'A';
    
-   if (alpha >'A' && alpha <'Z')
+   if (alpha >='A' && alpha =<'Z')
    {
 	   System.out.println((char)(alpha+32));
    }
    
-   else// (alpha >'a' && alpha <'z')
+   else (alpha >='a' && alpha =<'z')
   
    {
 	   System.out.println((char)(alpha-32));
