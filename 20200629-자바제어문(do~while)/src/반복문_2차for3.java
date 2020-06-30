@@ -36,7 +36,7 @@ public class 반복문_2차for3 {
 		
 		for(int i=1; i<=5; i++) {
 			for(int j=1; j<=5; j++) {
-				System.out.printf("%2c\t",i);		
+				System.out.printf("%2c\t",i+64);		
 			}
 			System.out.println();
 		}
