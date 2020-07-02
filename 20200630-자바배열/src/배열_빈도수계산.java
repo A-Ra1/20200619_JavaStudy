@@ -1,4 +1,4 @@
-import com.sun.javafx.image.IntPixelAccessor;
+
 
 // °¹¼ö
 public class ¹è¿­_ºóµµ¼ö°è»ê {
