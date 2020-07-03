@@ -104,6 +104,7 @@ public class 이차원배열 {
 				arr[i][j]=k;
 				k++;
 			}
+			
 		}
 		for(int i=3; i<=4; i++) {
 			for(int j=4-i; j<=i; j++) {
