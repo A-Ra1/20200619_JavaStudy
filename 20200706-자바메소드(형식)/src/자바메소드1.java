@@ -81,7 +81,7 @@ public class 자바메소드1 {
 //		System.out.print("정수를 입력:");
 //		int dan=scan.nextInt();
 		// 구구단을 출력할 메소드를 호출
-//		gugudan2(dan); 메소드는 호출하면 => 항상 메소드의 시작부터 종료까지 반복해서 호출한다
+//		gugudan2(dan); 메소드는 호출하면 => 항상 메소드의 시작부터 종료까s지 반복해서 호출한다
 		
 /*		gugudan2(3);
 		gugudan2(5);
