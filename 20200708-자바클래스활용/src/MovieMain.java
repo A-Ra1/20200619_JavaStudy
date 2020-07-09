@@ -16,9 +16,10 @@ public class MovieMain extends JFrame implements ActionListener {
 	JButton b1,b2,b3,b4,b5; // 멤버변수의 초기화
 	// JLabel la=new JLabel(); // 그림출력
 	static MovieVO[] movies=new MovieVO[20];
-	JPanel pan=new JPanel();
-	// MovieMain m=new MovieMain()
-	public MovieMain() {
+	JPanel pan=new JPanel(); 
+	// MovieMain m=new MovieMain() 
+	public MovieMain() { // 생성자의 특징 : 리턴형(X), 클래스명과 동일, 시작 후 데이터 불러오기 기능
+		                 // 파일읽기, 윈도우의 form형성, 네트워크 연결
 		b1=new JButton("현재상영영화");
 		b2=new JButton("개봉예정영화");
 		b3=new JButton("박스오피스(주간)");
