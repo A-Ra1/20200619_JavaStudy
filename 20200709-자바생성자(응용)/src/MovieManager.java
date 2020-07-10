@@ -7,6 +7,12 @@ public class MovieManager {
 	// static => 모든 클래스에서 공유를 할 경우
 	// 프로그램이 구동되면 자동으로 => 파일을 읽어서 배열에 저장
 	// 초기화 블럭
+	/*
+	 *  변수설정 : 초기값
+	 *  = 선언과 동시에 부여
+	 *  = 초기화 블럭
+	 *  = 생성자
+	 */
 	
 	static {
 		try {				
@@ -57,6 +63,27 @@ public class MovieManager {
 		 */
 		for(MovieVO vo:movies) {
 			if(i<10 && j>=pagecnt) {
+				m[i]=vo;
+				i++;
+			}
+		 j++;
+		}
+		return m;
+	}
+	
+	static MovieVO[] movieFindData(int page) {
+		MovieVO[] m=new MovieVO[50];
+		int i=0; // i => 10개씩 나눠주는 변수
+		int j=0; // j => for 횟수
+		int rowSize=50; // 각 페이지당 몇개를 출력할 것인지
+		int pagecnt=(page*rowSize)-rowSize; // 시작위치
+		/*
+		 *  1 page => 0~9
+		 *  2 page => 10~19
+		 */
+		for(MovieVO vo:movies) {
+			if(i>50) break;
+			if(i<50 && j>=pagecnt) {
 				m[i]=vo;
 				i++;
 			}
