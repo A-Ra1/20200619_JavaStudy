@@ -1,4 +1,5 @@
 package com.sist.client;
+import com.sist.common.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -16,11 +17,13 @@ public class RecipeMainFrame extends JFrame implements ActionListener{
 	CardLayout card=new CardLayout();
 	Login login=new Login();
 	JoinForm join=new JoinForm();
+	RecipeManager rm=new RecipeManager();
 	public RecipeMainFrame() {
 		// GUI의 화면 디자인, 변수 초기화, 데이터베이스 연결, 서버연결, 쓰레드 동작
 		// Layout => 화면 배치
 		setLayout(card);
 		// 화면추가
+		add("RM",rm);
 		add("LOGIN",login);
 		add("JOIN",join); 
 		
