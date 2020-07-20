@@ -18,6 +18,7 @@ public class ClientMainFrame extends JFrame implements ActionListener{
 	MenuForm mf=new MenuForm();
 	ChatForm cf=new ChatForm();
 	ControlPanel cp=new ControlPanel();
+	
 	public ClientMainFrame() {
 		/*
 		 *  클래스에서 생성자 사용 => 선언이 아니라 구현할때
