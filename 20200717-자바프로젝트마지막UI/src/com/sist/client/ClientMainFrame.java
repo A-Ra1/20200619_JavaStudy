@@ -63,6 +63,12 @@ public class ClientMainFrame extends JFrame implements ActionListener{
 		new ClientMainFrame();
 	}
 
+	public static Image getImage(ImageIcon ii,int w,int h) {
+	      Image dimg=ii.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
+	      return dimg;
+	   }
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -73,5 +79,7 @@ public class ClientMainFrame extends JFrame implements ActionListener{
 			cp.card.show(cp, "LF");
 		}
 	}
+
+	
 
 }
