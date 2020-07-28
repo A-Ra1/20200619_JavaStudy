@@ -23,7 +23,7 @@ public class MainClass {
 				Element title=doc2.selectFirst("h3.h_movie a");
 				System.out.println(title.text());
 				
-				Elements genre=doc2.selectFirst("p.info_spec");
+				Element genre=doc2.selectFirst("p.info_spec");
 				System.out.println(genre.text());
 			}
 			
