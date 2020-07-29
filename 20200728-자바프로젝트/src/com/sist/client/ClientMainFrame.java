@@ -61,11 +61,21 @@ public class ClientMainFrame extends JFrame implements ActionListener, MouseList
 	
 	mf.b1.addActionListener(this);
 	mf.b2.addActionListener(this);
+	mf.b5.addActionListener(this);
 	
 	cp.ff.b1.addActionListener(this); // 이전버튼
 	cp.ff.b2.addActionListener(this); // 다음버튼
 	
 	cp.df.b2.addActionListener(this); // 목록으로
+	
+	cp.lf.b1.addActionListener(this);
+	cp.lf.b2.addActionListener(this);
+	cp.lf.b3.addActionListener(this);
+	cp.lf.b4.addActionListener(this);
+	cp.lf.b5.addActionListener(this);
+	cp.lf.b6.addActionListener(this);
+	cp.lf.tf.addActionListener(this);
+	
 	
 	for(int i=0; i<10; i++) {
 		
@@ -96,6 +106,9 @@ public class ClientMainFrame extends JFrame implements ActionListener, MouseList
 		else if(e.getSource()==mf.b2) {
 			cp.card.show(cp, "LF");
 		}
+		else if(e.getSource()==mf.b5) {
+			cp.card.show(cp, "NF");
+		}
 		else if(e.getSource()==cp.df.b2) {
 			cp.card.show(cp, "FF");
 		}
@@ -120,6 +133,34 @@ public class ClientMainFrame extends JFrame implements ActionListener, MouseList
 				cp.ff.repaint();
 				cp.ff.p.validate();
 			}
+		}
+		
+		else if(e.getSource()==cp.lf.b1) {
+			cp.lf.movieAllData(1);
+		}
+		else if(e.getSource()==cp.lf.b2) {
+			cp.lf.movieAllData(2);
+		}
+		else if(e.getSource()==cp.lf.b3) {
+			cp.lf.movieAllData(3);
+		}
+		else if(e.getSource()==cp.lf.b4) {
+			cp.lf.movieAllData(4);
+		}
+		else if(e.getSource()==cp.lf.b5) {
+			cp.lf.movieAllData(5);
+		}
+		else if(e.getSource()==cp.lf.b6 || e.getSource()==cp.lf.tf) {
+			
+			// 1.입력된 값 읽기
+			String ss=cp.lf.tf.getText();
+			if(ss.length()<1) {
+				JOptionPane.showMessageDialog(this, "검색어를 입력하세요");
+				cp.lf.tf.requestFocus(); // 커서 올려놓기
+				return; // 메소드 종료
+			}
+			cp.lf.movieFindData(ss);
+			
 		}
 	}
 

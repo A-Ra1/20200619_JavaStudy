@@ -8,6 +8,7 @@ public class ControlPanel extends JPanel{ //화면추가 : JPanel (JFrame X)
 	DetailForm df=new DetailForm();
 	MovieForm ff;
 	ClientMainFrame c;
+	NewsForm nf=new NewsForm();
 	
 	public ControlPanel(ClientMainFrame c) {
 		
@@ -16,7 +17,7 @@ public class ControlPanel extends JPanel{ //화면추가 : JPanel (JFrame X)
 		setLayout(card);
 		add("FF",ff);
 		add("DF",df);
-		
+		add("NF",nf);
 		add("LF",lf);
 		
 	}

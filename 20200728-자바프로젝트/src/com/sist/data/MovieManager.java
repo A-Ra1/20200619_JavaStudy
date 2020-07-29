@@ -125,6 +125,36 @@ public class MovieManager {
 		return list.get(mno-1);
 	}
 	
+	
+	// 영화 전체 읽기
+	public ArrayList<MovieVO> movieAllData(int cno){
+		
+		ArrayList<MovieVO> movies=new ArrayList<MovieVO>();
+		
+		for(MovieVO vo:list) {
+			if(vo.getCno()==cno) { //  같은 cno만 모아준다
+				movies.add(vo);
+			}
+		}
+		return movies;
+	}
+	
+	public ArrayList<MovieVO> movieFindData(String ss){
+		
+		ArrayList<MovieVO> movies=new ArrayList<MovieVO>(); // 가변 배열 
+		// list
+		
+		for(MovieVO vo:list) {
+			if(vo.getTitle().contains(ss)) {
+				movies.add(vo); // 데이터 묶어서 출력 
+			}
+		}
+		
+		return movies;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
 		Scanner scan=new Scanner(System.in);

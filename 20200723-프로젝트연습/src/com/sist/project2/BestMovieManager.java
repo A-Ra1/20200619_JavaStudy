@@ -1,4 +1,4 @@
-package com.sist.project;
+package com.sist.project2;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -10,35 +10,34 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class MovieManager {
+public class BestMovieManager {
 	
 
 	public void movieAllData()  {
 		
 		try {
-		ArrayList<MovieVO> list=new ArrayList<MovieVO>();
+		ArrayList<BestMovieVO> list=new ArrayList<BestMovieVO>();
 		
 		String[] site={
-			"https://movie.daum.net/premovie/released?reservationOnly=N&sort=reservation&page=",
-			"https://movie.daum.net/premovie/scheduled?reservationOnly=N&sort=reservation&page=",
-			"https://movie.daum.net/boxoffice/weekly",
-			"https://movie.daum.net/boxoffice/monthly",
-			"https://movie.daum.net/boxoffice/yearly"	
-		};
+			"https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/", // BEST MOVIES ON NETFLIX
+			"https://editorial.rottentomatoes.com/guide/best-disney-movies-to-watch-now/", // THE 150 BEST MOVIES ON DISNEY
+			"https://editorial.rottentomatoes.com/guide/best-movies-on-amazon-prime-right-now/", // 100 BEST MOVIES ON AMAZON PRIME
+			"https://editorial.rottentomatoes.com/guide/best-movies-3-hours-or-longer-ranked/" // THE 95 BEST MOVIES 3 HOURS OR LONGER
+			};
 		/*
 		 *  
 		 */
 		
-		int mno=106;
-		int cno=5;
+		int mno=1;
+		int cno=1;
 		
 	//	for (int i = 4; i <= 6; i++) {
 			
 			// 사이트연결 => 데이터를 한번에 읽기 => 메모리에 저장 => Document
 			
 		
-			Document doc=Jsoup.connect("https://movie.daum.net/boxoffice/yearly").get();
-			Elements link=doc.select("a.name_movie");
+			Document doc=Jsoup.connect("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now").get();
+			Elements link=doc.select("h2 a");
 					
 		
 			
@@ -143,7 +142,7 @@ public class MovieManager {
 	public static void main(String[] args) {
 
 		 // 객체생성 
-		MovieManager m=new MovieManager();
+		BestMovieManager m=new BestMovieManager();
 		//m.movieAllData();
 		m.daumNewsData();
 		
