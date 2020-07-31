@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 
 import com.sist.project.MovieVO;
 
-public class BestMovieManager {
+public class MovieManager {
 	
 
 	
@@ -81,7 +81,7 @@ public class BestMovieManager {
 //				
 //				String r=regyear.text();
 //				r=r.substring(r.indexOf("("+1,r.lastIndexOf(")")));
-//				
+//////				
 //				String a=actor.text();
 //				a=a.substring(a.indexOf(":"+1));
 //				
@@ -90,7 +90,7 @@ public class BestMovieManager {
 //				
 //				String s=story.text();
 //				s=s.substring(s.indexOf(":"+1,s.lastIndexOf("[")));
-////				.
+//////				
 				
 				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+regyear.get(j).text()+"|"+score.get(j).text()+"|"
 						+actor.get(j).text()+"|"+critics.get(j).text()+"|"+poster.attr("src")+"|"+story.get(j).text()+"\r\n";
@@ -115,7 +115,7 @@ public class BestMovieManager {
 	public static void main(String[] args) {
 
 		 // °´Ã¼»ý¼º 
-		BestMovieManager m=new BestMovieManager();
+		MovieManager m=new MovieManager();
 		m.movieAllData();
 		
 		

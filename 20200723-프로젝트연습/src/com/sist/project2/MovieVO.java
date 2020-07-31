@@ -2,7 +2,7 @@ package com.sist.project2;
 /*
  * 
  */
-public class BestMovieVO {
+public class MovieVO {
 	
 	private int mno; // 영화번호
 	private int cno; // 카테고리 번호 
