@@ -33,11 +33,11 @@ public class BestMovieManager {
 		
 		
 			
-			int mno=1;
-			int cno=1;
+			int mno=501;
+			int cno=4;
 			
 			for(int i=1; i<=2; i++) {
-			Document doc=Jsoup.connect("https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/"+i+"/").get();
+			Document doc=Jsoup.connect("https://editorial.rottentomatoes.com/guide/best-movies-3-hours-or-longer-ranked/").get();
 			Elements link=doc.select("h2 a");
 			
 			
@@ -78,24 +78,25 @@ public class BestMovieManager {
 //				String img=poster.get(j).attr("style");
 //				img=img.substring(img.indexOf("(")+1,img.lastIndexOf(")"));
 				
+//				
+//				String r=regyear.text();
+//				r=r.substring(r.indexOf("("+1,r.lastIndexOf(")")));
+//				
+//				String a=actor.text();
+//				a=a.substring(a.indexOf(":"+1));
+//				
+//				String c=critics.text();
+//				c=c.substring(c.indexOf(":"+1));
+//				
+//				String s=story.text();
+//				s=s.substring(s.indexOf(":"+1,s.lastIndexOf("[")));
+////				.
 				
-				String r=regyear.text();
-				r=r.substring(r.indexOf("("+1,r.lastIndexOf(")")));
-				
-				String a=actor.text();
-				a=a.substring(a.indexOf(":"+1));
-				
-				String c=critics.text();
-				c=c.substring(c.indexOf(":"+1));
-				
-				String s=story.text();
-				s=s.substring(s.indexOf(":"+1,s.lastIndexOf("[")));
-				
-				
-				
-						
-				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+r+"|"+score.get(j).text()+"|"
-						+a+"|"+c+"|"+poster.get(j).text()+"|"+s+"\r\n";
+				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+regyear.get(j).text()+"|"+score.get(j).text()+"|"
+						+actor.get(j).text()+"|"+critics.get(j).text()+"|"+poster.attr("src")+"|"+story.get(j).text()+"\r\n";
+//////						
+//				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+r+"|"+score.get(j).text()+"|"
+//						+a+"|"+c+"|"+poster.attr("src")+"|"+s+"\r\n";
 				
 				fw.write(data);
 				fw.close();

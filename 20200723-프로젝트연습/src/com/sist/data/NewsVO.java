@@ -1,4 +1,4 @@
-package com.sist.project2;
+package com.sist.data;
 
 
 public class NewsVO {
