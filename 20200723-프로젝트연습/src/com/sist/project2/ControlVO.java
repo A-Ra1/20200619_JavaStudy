@@ -36,15 +36,15 @@ public class ControlVO {
 						vo.setCno(Integer.parseInt(data[1]));
 						vo.setTitle(data[2]);
 						
-						String regyear=data[3];
+					//	String regyear=data[3];
 //						regyear=regyear.substring(regyear.indexOf("("+1,regyear.lastIndexOf(")")));
-//						vo.setRegyear(regyear);
+						vo.setRegyear(data[3]);
 						
 						vo.setScore(data[4]);
 						
 						String actor=data[5];
 //						actor=actor.substring(actor.indexOf(":"+1));
-//					    vo.setActor(actor);
+					    vo.setActor(actor);
 					    
 					    String critics=data[6];
 //					    critics=critics.substring(critics.indexOf(":"+1));
@@ -71,7 +71,12 @@ public class ControlVO {
 		
 		for(MovieVO vo:list) {
 			
-			System.out.println(vo.getTitle());
+			System.out.println(vo.getTitle()+
+							   vo.getRegyear()+
+							   vo.getScore()
+							   
+					
+					);
 			
 		}
 	}
