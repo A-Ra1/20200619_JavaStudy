@@ -1,21 +1,27 @@
-package com.sist.project2;
+package com.sist.data;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+// 데이터관리
+
 import java.util.*;
+import java.io.*;
+/*
+ *  프로그램 작성
+ *  = 파일 : 분리할 수 없다 => 전체를 통으로 저장
+ *    = 1. 전체 파일을 읽어서 분리 => 메모리에 저장
+ *    								  ------ ArrayList
+ *    		FileReader
+ *    	    StringTokenizer, split
+ *      2. 메모리에서 제어 
+ *  = 오라클 : 분리가 되어 있는 상태
+ *     = 필요시마다 오라클에 연결 => 메소드 안에서 처리+
+ */
 
-import com.sist.data.MovieVO;
-
-
-public class ControlVO {
-
-	private static ArrayList<MovieVO> list=new ArrayList<MovieVO>();
+public class MovieManager {
 	
+private static ArrayList<MovieVO> list=new ArrayList<MovieVO>();
 	
 	static {
-		
-		try {
+try {
 			
 			FileInputStream fr=new FileInputStream("c:\\javaDev\\Best_movie.txt");
 			
@@ -62,17 +68,12 @@ public class ControlVO {
 						
 						list.add(vo);
 					}
-		//	}
-			
 		} catch (Exception e) {
-		
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
-		
 	}
 	
-public ArrayList<MovieVO> movieListData(int page) {
+	public ArrayList<MovieVO> movieListData(int page) {
 		
 		ArrayList<MovieVO> movies=new ArrayList<MovieVO>();
 		
@@ -128,22 +129,22 @@ public ArrayList<MovieVO> movieListData(int page) {
 		return movies;
 	}
 	
-	
 	public static void main(String[] args) {
+
+		Scanner scan=new Scanner(System.in);
+		System.out.print("페이지:");
+		int page=scan.nextInt();
 		
+		MovieManager m=new MovieManager();
+		System.out.println(page+" page / "+m.movieTotalPage()+" pages");
+		
+		// 데이터 읽기
+		
+		ArrayList<MovieVO> list = m.movieListData(page);
 		
 		for(MovieVO vo:list) {
-			
-			System.out.println(vo.getTitle()+
-							   vo.getRegyear()+
-							   vo.getScore()+
-							   vo.getActor()+
-							   vo.getCritics()+
-							   vo.getStory()+
-							   vo.getPoster()
-					
-					);
-			
+			System.out.println(vo.getTitle());
 		}
 	}
+
 }

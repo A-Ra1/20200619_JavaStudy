@@ -5,16 +5,15 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
+import com.sist.data.MovieManager;
 import com.sist.data.MovieVO;
 
 
-public class ControlVO {
+public class ControlVO2 {
 
 	private static ArrayList<MovieVO> list=new ArrayList<MovieVO>();
 	
-	
 	static {
-		
 		try {
 			
 			FileInputStream fr=new FileInputStream("c:\\javaDev\\Best_movie.txt");
@@ -22,57 +21,36 @@ public class ControlVO {
 			BufferedReader in=new BufferedReader(new InputStreamReader(fr));
 			
 			while(true) {
-				
 				String movie=in.readLine();
 				if(movie==null) break;
 				
-//				StringTokenizer st=new StringTokenizer(movie,"|");
+				StringTokenizer st=new StringTokenizer(movie,"|");
 				
-				//	while(st.hasMoreTokens()) {
-						
-						String[] data=movie.split("\\|");
-						
-						MovieVO vo=new MovieVO();
-						
-						vo.setMno(Integer.parseInt(data[0]));
-						vo.setCno(Integer.parseInt(data[1]));
-						vo.setTitle(data[2]);
-						
-					//	String regyear=data[3];
-//						regyear=regyear.substring(regyear.indexOf("("+1,regyear.lastIndexOf(")")));
-						vo.setRegyear(data[3]);
-						
-						vo.setScore(data[4]);
-						
-						String actor=data[5];
-//						actor=actor.substring(actor.indexOf(":"+1));
-					    vo.setActor(actor);
-					    
-					    String critics=data[6];
-//					    critics=critics.substring(critics.indexOf(":"+1));
-					    vo.setCritics(critics);
-					    
-					    String poster=data[7];
-					    vo.setPoster(poster);
-//					    story=story.substring(story.indexOf(":"+1),story.lastIndexOf("["));
-					    
-					    String story=data[8];
-					    vo.setStory(story);
+				while(st.hasMoreTokens()) {
 					
-						
-						list.add(vo);
-					}
-		//	}
-			
+					
+					MovieVO vo=new MovieVO();
+					
+					vo.setMno(Integer.parseInt(st.nextToken()));
+					vo.setCno(Integer.parseInt(st.nextToken()));
+					vo.setTitle(st.nextToken());
+				//	vo.setRegyear(st.nextToken());
+					vo.setScore(st.nextToken());
+					vo.setActor(st.nextToken());
+				//	vo.setCritics(st.nextToken());
+					vo.setStory(st.nextToken());
+					vo.setPoster(st.nextToken());
+					
+					list.add(vo);
+					
+				}
+			}
 		} catch (Exception e) {
-		
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
-		
 	}
 	
-public ArrayList<MovieVO> movieListData(int page) {
+	public ArrayList<MovieVO> movieListData(int page) {
 		
 		ArrayList<MovieVO> movies=new ArrayList<MovieVO>();
 		
@@ -128,22 +106,22 @@ public ArrayList<MovieVO> movieListData(int page) {
 		return movies;
 	}
 	
-	
 	public static void main(String[] args) {
+
+		Scanner scan=new Scanner(System.in);
+		System.out.print("페이지:");
+		int page=scan.nextInt();
 		
+		MovieManager m=new MovieManager();
+		System.out.println(page+" page / "+m.movieTotalPage()+" pages");
+		
+		// 데이터 읽기
+		
+		ArrayList<MovieVO> list = m.movieListData(page);
 		
 		for(MovieVO vo:list) {
-			
-			System.out.println(vo.getTitle()+
-							   vo.getRegyear()+
-							   vo.getScore()+
-							   vo.getActor()+
-							   vo.getCritics()+
-							   vo.getStory()+
-							   vo.getPoster()
-					
-					);
-			
+			System.out.println(vo.getTitle());
 		}
 	}
+
 }

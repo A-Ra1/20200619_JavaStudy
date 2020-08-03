@@ -10,7 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.sist.project.MovieVO;
+
 
 public class MovieManager {
 	
@@ -25,7 +25,7 @@ public class MovieManager {
 		
 		
 		String[] site={
-				"https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/", // BEST MOVIES ON NETFLIX
+				"https://editorial.rottentomatoes.com/guide/best-netflix-movies-to-watch-right-now/", //100 BEST MOVIES ON NETFLIX RIGHT NOW
 				"https://editorial.rottentomatoes.com/guide/best-disney-movies-to-watch-now/", // THE 150 BEST MOVIES ON DISNEY
 				"https://editorial.rottentomatoes.com/guide/best-movies-on-amazon-prime-right-now/", // 100 BEST MOVIES ON AMAZON PRIME
 				"https://editorial.rottentomatoes.com/guide/best-movies-3-hours-or-longer-ranked/" // THE 95 BEST MOVIES 3 HOURS OR LONGER
@@ -33,7 +33,7 @@ public class MovieManager {
 		
 		
 			
-			int mno=501;
+			int mno=351;
 			int cno=4;
 			
 			for(int i=1; i<=2; i++) {
@@ -60,7 +60,7 @@ public class MovieManager {
 			Elements critics=doc.select("div.critics-consensus"); // "Critics Consensus:"제거
 			System.out.println(critics.get(j).text());
 			
-			Elements poster=doc.select("a.article_movie_poster img");
+			Elements poster=doc.select("img.article_poster");
 			System.out.println(poster.get(j).attr("src"));
 			
 			Elements story=doc.select("div.synopsis"); //"Synopsis:, [More]" 제거
@@ -86,14 +86,14 @@ public class MovieManager {
 //				a=a.substring(a.indexOf(":"+1));
 //				
 //				String c=critics.text();
-//				c=c.substring(c.indexOf(":"+1));
+//				c=c.substring(c.indexOf(":"+1));  +poster.attr("src")
 //				
 //				String s=story.text();
 //				s=s.substring(s.indexOf(":"+1,s.lastIndexOf("[")));
 //////				
 				
 				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+regyear.get(j).text()+"|"+score.get(j).text()+"|"
-						+actor.get(j).text()+"|"+critics.get(j).text()+"|"+poster.attr("src")+"|"+story.get(j).text()+"\r\n";
+						+actor.get(j).text()+"|"+critics.get(j).text()+"|"+poster.get(j).attr("src")+"|"+story.get(j).text()+"\r\n";
 //////						
 //				String data=mno+"|"+cno+"|"+title.get(j).text()+"|"+r+"|"+score.get(j).text()+"|"
 //						+a+"|"+c+"|"+poster.attr("src")+"|"+s+"\r\n";
