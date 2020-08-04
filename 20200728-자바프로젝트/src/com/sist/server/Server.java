@@ -85,7 +85,7 @@ public class Server implements Runnable {
 
 				while (true) {
 					String msg=in.readLine();
-					System.out.println("clien =>"+msg);
+					System.out.println("client =>"+msg);
 					// 클라이언트 요청한 데이터
 					StringTokenizer st=new StringTokenizer(msg,"|");
 					int protocol=Integer.parseInt(st.nextToken());

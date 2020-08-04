@@ -33,7 +33,7 @@ public class MovieManager {
 		
 		
 			
-			int mno=351;
+			int mno=76;
 			int cno=4;
 			
 			for(int i=1; i<=2; i++) {
@@ -71,7 +71,7 @@ public class MovieManager {
 			
 			//	System.out.println(link.get(j).attr("href"));
 				
-				FileWriter fw=new FileWriter("c:\\javaDev\\Best_movie.txt",true);
+				FileWriter fw=new FileWriter("c:\\javaDev\\Best_movie2.txt",true);
 				
 				
 				
