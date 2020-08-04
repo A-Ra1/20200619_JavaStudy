@@ -21,13 +21,10 @@ public class ListForm extends JPanel implements MouseListener{
 	DefaultTableModel model;
 	MovieDetailForm mdf=new MovieDetailForm();
 	
-	/*
-	 *  기능 => 메소드 => 리턴형, 매개변수
-	 * 
-	 */
+	
 	public ListForm() {
 		
-		setLayout(null); // FlowLayout 
+		setLayout(null); 
 		
 		b1=new JButton("BEST MOVIES ON NETFLIX");
 		b2=new JButton("THE 150 BEST MOVIES ON DISNEY");
@@ -39,7 +36,7 @@ public class ListForm extends JPanel implements MouseListener{
 		
 		JPanel p=new JPanel();
 		p.add(b1);
-		p.add(b2); // add => 패널을 한번에 묶어줌 => 순서O
+		p.add(b2); 
 		p.add(b3);
 		p.add(b4);
 		p.add(tf);
@@ -53,20 +50,7 @@ public class ListForm extends JPanel implements MouseListener{
 		String[] col= {"번호","","제목","개봉년도","평점"};
 		Object[][] row=new Object[0][5];
 		
-		// DefaultTableModel => 오버라이딩할 메소드가 있다(익명의 클래스 => 내부클래스)
-		/*
-		 *  내부클래스
-		 *  ==========
-		 *   class A
-		 *   {
-		 *   
-		 *    	
-		 *     class B  => A클래스의 멤버 => 멤버클래스
-		 *     {
-		 *     
-		 *     }
-		 *   }
-		 */
+		
 		model=new DefaultTableModel(row,col) {
 
 			// 편집방지
@@ -108,26 +92,21 @@ public class ListForm extends JPanel implements MouseListener{
 	
 	public void movieAllData(int cno) {
 		
-		// 데이터 가지고 오기
-		MovieManager m=new MovieManager(); // 인스턴스 ~ 객체생성 후 데이터 가져오기
+		
+		MovieManager m=new MovieManager(); 
 		ArrayList<MovieVO> list=m.movieAllData(cno);
 		
-		//테이블 한번 지우기
-		//맨 마지막부터 지운다
-		for(int i=model.getRowCount()-1; i>=0; i--) {// 출력된 전체 갯수
+		for(int i=model.getRowCount()-1; i>=0; i--) {
 		
 			model.removeRow(i);}
 		
 		
-		/*
-		 *  데이터 출력 
-		 *  java.io, java.net => CheckException => 반드시 예외처리
-		 */
+		
 		for(MovieVO vo:list) {
 			try {
 				
-			URL url=new URL(vo.getPoster()); // http: => url 사용, 다운된 이미지 => 경로명
-		//	System.out.println(vo.getPoster());
+			URL url=new URL(vo.getPoster()); 
+		
 			Image img=ClientMainFrame.getImage(new ImageIcon(url), 50, 50);
 			
 			Object[] data= {
@@ -148,25 +127,21 @@ public class ListForm extends JPanel implements MouseListener{
 	
 public void movieFindData(String ss) {
 		
-		// 데이터 가지고 오기
-		MovieManager m=new MovieManager(); // 인스턴스 ~ 객체생성 후 데이터 가져오기
+		
+		MovieManager m=new MovieManager(); 
 		ArrayList<MovieVO> list=m.movieFindData(ss);
 		
-		//테이블 한번 지우기
-		//맨 마지막부터 지운다
-		for(int i=model.getRowCount()-1; i>=0; i--) {// 출력된 전체 갯수
+		
+		for(int i=model.getRowCount()-1; i>=0; i--) {
 		
 			model.removeRow(i);}
 		
 		
-		/*
-		 *  데이터 출력 
-		 *  java.io, java.net => CheckException => 반드시 예외처리
-		 */
+		
 		for(MovieVO vo:list) {
 			try {
 				
-			URL url=new URL(vo.getPoster()); // http: => url 사용, 다운된 이미지 => 경로명
+			URL url=new URL(vo.getPoster()); 
 			Image img=ClientMainFrame.getImage(new ImageIcon(url), 50, 50);
 			
 			Object[] data= {
@@ -191,7 +166,7 @@ public void mouseClicked(MouseEvent e) {
 	// TODO Auto-generated method stub
 	if(e.getSource()==table) {
 		if(e.getClickCount()==2) {
-			int row=table.getSelectedRow(); // 몇번째 줄 선택했는지
+			int row=table.getSelectedRow(); 
 			String mno=model.getValueAt(row, 0).toString();
 			mdf.detailPrint(Integer.parseInt(mno));
 		}

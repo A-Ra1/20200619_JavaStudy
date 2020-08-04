@@ -15,7 +15,7 @@ public class MovieDetailForm extends JPanel {
 	JLabel poster=new JLabel();
 	JLabel la1=new JLabel();
 	JLabel[] la=new JLabel[4];
-	JTextPane ta=new JTextPane(); // ÀÚµ¿À¸·Î ÁÙ³Ñ±è 
+	JTextPane ta=new JTextPane(); 
 	JButton b1,b2;
 	
 	public MovieDetailForm() {
@@ -23,14 +23,10 @@ public class MovieDetailForm extends JPanel {
 		setLayout(null);
 		
 		poster.setBounds(10, 15, 350, 400);
-//		poster.setOpaque(true);
-//		poster.setBackground(Color.red);
 		add(poster);
 		
 		la1.setBounds(365, 15, 500, 45);
-//		la1.setOpaque(true);
-//		la1.setBackground(Color.blue);
-		la1.setFont(new Font("±¼¸²Ã¼",Font.BOLD,40));
+		la1.setFont(new Font("±¼¸²Ã¼",Font.BOLD,25));
 		add(la1);
 		
 		JPanel p=new JPanel();
@@ -40,7 +36,7 @@ public class MovieDetailForm extends JPanel {
 		
 		for(int i=0; i<4; i++) {
 			la[i]=new JLabel(str[i]);
-			la[i].setFont(new Font("±¼¸²Ã¼",Font.BOLD,30));
+			la[i].setFont(new Font("±¼¸²Ã¼",Font.BOLD,15));
 			p.add(la[i]);
 		}
 		
@@ -73,7 +69,7 @@ public class MovieDetailForm extends JPanel {
 		
 		try {
 			URL url=new URL(vo.getPoster());
-			Image img=ClientMainFrame.getImage(new ImageIcon(url), poster.getWidth(), poster.getHeight()); // ½ÇÁ¦(Label)Å©±â
+			Image img=ClientMainFrame.getImage(new ImageIcon(url), poster.getWidth(), poster.getHeight()); 
 			
 			poster.setIcon(new ImageIcon(img));
 		} catch (Exception e) {

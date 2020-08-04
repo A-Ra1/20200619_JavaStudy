@@ -36,7 +36,7 @@ public class DetailForm extends JPanel {
 		
 		for(int i=0; i<4; i++) {
 			la[i]=new JLabel(str[i]);
-			la[i].setFont(new Font("±¼¸²Ã¼",Font.BOLD,20));
+			la[i].setFont(new Font("±¼¸²Ã¼",Font.BOLD,10));
 			p.add(la[i]);
 		}
 		

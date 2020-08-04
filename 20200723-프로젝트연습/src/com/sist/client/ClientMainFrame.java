@@ -36,7 +36,7 @@ public class ClientMainFrame extends JFrame implements ActionListener, MouseList
 	ControlPanel cp;
 
 	int curpage=1;
-	int totalpage=16;
+	int totalpage=60;
 	
 	// 네트워크 관련 프로그램
 	Socket s; // 연결기계
